@@ -1,1 +1,6 @@
 logs/
+dataset/**
+!dataset/
+!dataset/*
+!dataset/utils/
+!dataset/utils/**

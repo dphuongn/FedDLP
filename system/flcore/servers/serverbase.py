@@ -6,7 +6,6 @@ import copy
 import time
 import random
 import statistics
-import wandb  # Import wandb
 
 
 class Server(object):

@@ -8,7 +8,6 @@ from sklearn.preprocessing import label_binarize
 from sklearn import metrics
 from torch.utils.data import Subset
 from utils.data_utils import read_client_data_clip, accuracy
-import wandb  # Import wandb
 
 
 class Client(object):

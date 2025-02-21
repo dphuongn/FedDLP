@@ -16,7 +16,6 @@ from pathlib import Path
 
 from flcore.trainmodel.clip_model import *
 
-
 class clientLORALOCAL(Client):
     def __init__(self, args, id, **kwargs):
         super().__init__(args, id, **kwargs)

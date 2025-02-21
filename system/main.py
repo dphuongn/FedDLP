@@ -54,10 +54,10 @@ def run(args):
         args.processor = get_processor(args.model_checkpoint, args.home_dir)
             
 
-        if args.algorithm == "floralocal":
+        if args.algorithm == "loralocal":
             server = FLoraLocal(args, i)
 
-        elif args.algorithm == "fedaa":
+        elif args.algorithm == "fedclip":
             server = FedAa(args, i)
 
         elif args.algorithm == "flora":
