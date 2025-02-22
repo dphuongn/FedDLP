@@ -107,9 +107,9 @@ if __name__ == "__main__":
     parser.add_argument('-dev', "--device", type=str, default="cuda",
                         choices=["cpu", "cuda"])
     parser.add_argument('-did', "--device_id", type=str, default="0")
-    parser.add_argument('-data', "--dataset", type=str, default="mnist")
+    parser.add_argument('-data', "--dataset", type=lambda s: s.lower(), default="pets")
     parser.add_argument('-m', "--model", type=str, default="vit-b-32")
-    parser.add_argument('-lbs', "--batch_size_train", type=int, default=512)
+    parser.add_argument('-lbs', "--batch_size_train", type=int, default=32)
     parser.add_argument('-bs_test', "--batch_size_test", type=int, default=512)
 
     parser.add_argument('-lr', "--local_learning_rate", type=float, default=0.00005,
@@ -144,10 +144,10 @@ if __name__ == "__main__":
     parser.add_argument('-g_l', "--gamma_local", type=float, default=0.1, help="gamma for local SoRA -> global LoRA distillation")
 
     
-    parser.add_argument('-gr', "--global_rounds", type=int, default=2000)
+    parser.add_argument('-gr', "--global_rounds", type=int, default=100)
     parser.add_argument('-ls', "--local_epochs", type=int, default=1, 
                         help="Local epoch.")
-    parser.add_argument('-algo', "--algorithm", type=str, default="FedAvg")
+    parser.add_argument('-algo', "--algorithm", type=lambda s: s.lower(), default="feddlp")
     parser.add_argument('-jr', "--join_ratio", type=float, default=1.0,
                         help="Ratio of clients per round")
     parser.add_argument('-rjr', "--random_join_ratio", action='store_true',
