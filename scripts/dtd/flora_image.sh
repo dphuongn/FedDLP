@@ -4,8 +4,10 @@ algo='flora'
 lr=1e-5
 sd=0
 
+cd system/
+
 # Define the directory where you want to store output and error files
-log_dir="./logs/${dataset}"
+log_dir="../logs/${dataset}"
 
 # Create the directory if it doesn't exist
 mkdir -p $log_dir
@@ -13,7 +15,11 @@ mkdir -p $log_dir
 output_file="${log_dir}/${algo}_image_lr${lr}_sd${sd}.out"
 error_file="${log_dir}/${algo}_image_lr${lr}_sd${sd}.err"
 
-python system/main.py -data ${dataset} \
+# Clear previous logs
+> $output_file
+> $error_file
+
+python main.py -data ${dataset} \
     -algo ${algo} \
     -gr 100 \
     -did 0 \

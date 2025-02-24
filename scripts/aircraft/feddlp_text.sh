@@ -3,6 +3,8 @@ dataset='aircraft'
 algo='feddlp'
 lr=1e-5
 sd=0
+sparse_lambda=5e-5
+gammas_local=1
 
 cd system/
 
@@ -21,6 +23,8 @@ error_file="${log_dir}/${algo}_text_lr${lr}_sd${sd}.err"
 
 python main.py -data ${dataset} \
     -algo ${algo} \
+    --sparse_lambda ${sparse_lambda} \
+    --gamma_local ${gammas_local} \
     -gr 100 \
     -did 0 \
     -nc 10 \

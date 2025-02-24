@@ -24,16 +24,13 @@ class clientDAT(Client):
         
         self.lora_params = args.lora_params
         
-        self.momentum_global = args.momentum_global
-        self.momentum_local = args.momentum_local
-        
         self.mu_global = torch.nn.Parameter(torch.tensor(args.mu_global, dtype=torch.float32))
         self.mu_learning_rate_global = args.mu_learning_rate_global
         
         self.mu_local = torch.nn.Parameter(torch.tensor(args.mu_local, dtype=torch.float32))
         self.mu_learning_rate_local = args.mu_learning_rate_local
         
-        self.clip_model_object = CLIPModelWithLoRACombined(model_checkpoint=args.model_checkpoint, home_dir=args.home_dir, lora_params_global=self.lora_params, lora_params_local=self.lora_params, momentum_global=self.momentum_global, momentum_local=self.momentum_local)
+        self.clip_model_object = CLIPModelWithLoRACombined(model_checkpoint=args.model_checkpoint, home_dir=args.home_dir, lora_params_global=self.lora_params, lora_params_local=self.lora_params)
         
         self.clip_model_global = self.clip_model_object.model_global
         self.clip_model_local = self.clip_model_object.model_combined
@@ -233,8 +230,8 @@ class clientDAT(Client):
                         reduction='batchmean'
                     )
                     
-                    print(f'kl_div_loss_image: {kl_div_loss_image}')
-                    print(f'kl_div_loss_text: {kl_div_loss_text}')
+                    # print(f'kl_div_loss_image: {kl_div_loss_image}')
+                    # print(f'kl_div_loss_text: {kl_div_loss_text}')
 
                     kl_div_loss = (kl_div_loss_image + kl_div_loss_text) / 2
                     
@@ -268,9 +265,6 @@ class clientDAT(Client):
                     
         self.clip_model_global.to("cpu")            
         self.clip_model_local.to("cpu")
-        
-        print(f'self.mu_global: {self.mu_global}')
-        print(f'self.mu_local: {self.mu_local}')
 
         end = time.time()
         elapsed = end-start
@@ -378,12 +372,6 @@ class clientDAT(Client):
     
     def set_parameters(self, dictionary):
         self.clip_model_object.set_lora_dict_global(dictionary)
-        
-    def set_lora_global_with_momentum(self, dictionary):    
-        self.clip_model_object.set_lora_dict_global_with_momentum(dictionary)
-        
-    def set_lora_local_with_momentum(self, dictionary):    
-        self.clip_model_object.set_lora_dict_local_with_momentum(dictionary)
     
 if __name__ == "__main__":
     pass
