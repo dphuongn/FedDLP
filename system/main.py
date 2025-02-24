@@ -331,7 +331,7 @@ if __name__ == "__main__":
     print("gamma_local: {}".format(args.gamma_local))
     print("-" * 20)
     
-
+    print("Global rounds: {}".format(args.global_rounds))
     print("Local batch size train: {}".format(args.batch_size_train))
     print("Batch size test: {}".format(args.batch_size_test))
     print("Local epochs: {}".format(args.local_epochs))
