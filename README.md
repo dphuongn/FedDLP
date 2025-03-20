@@ -1,6 +1,6 @@
 # Introduction
 
-This is the implementation of the paper **Federated Multimodal Learning with Dual Adapters and Selective Pruning for Communication and Computational Efficiency [(arxiv)](https://arxiv.org/pdf/2503.07552)**. 
+This is the implementation of the paper **Federated Multimodal Learning with Dual Adapters and Selective Pruning for Communication and Computational Efficiency [(arxiv)](https://arxiv.org/abs/2503.07552)**. 
 
 ## Operating System
 Linux x86_64
@@ -90,6 +90,18 @@ bash ./scripts/aircraft/feddlp_image.sh     # for image encoder
 
 Feel free to change parameters to your desired experiments. If you use the same setting as our papers, you can simply adopt the hyperparameters reported in our paper.
 
+
 # Acknowledgement
 
 This code is heavily inspired from the popoular federated learning project [PFLlib](https://github.com/TsingZ0/PFLlib). Big shout out for their wonderful work!
+
+# Citation
+
+- FedDLP
+    ```bibtex
+    @inproceedings{nguyen2025feddlp,
+        title={Adaptive configuration for heterogeneous participants in decentralized federated learning},
+        author={Nguyen, Duy Phuong and Muñoz, J. Pablo and Roosta, Tanya and Jannesari, Ali},
+        booktitle={IEEE International Symposium on Cluster, Cloud and Internet Computing (CCGrid)},
+        year={2025}
+    }
