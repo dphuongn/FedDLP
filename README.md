@@ -1,6 +1,6 @@
 # Introduction
 
-This is the implementation of the paper Federated Multimodal Learning with Dual Adapters and Selective Pruning for Communication and Computational Efficiency. 
+This is the implementation of the paper **Federated Multimodal Learning with Dual Adapters and Selective Pruning for Communication and Computational Efficiency [(arxiv)](https://arxiv.org/pdf/2503.07552)**. 
 
 ## Operating System
 Linux x86_64
